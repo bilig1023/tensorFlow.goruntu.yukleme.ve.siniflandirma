@@ -1,0 +1,36 @@
+img = tf.keras.preprocessing.image.load_img(img_path, target_size=(224, 224))
+#tf.keras.preprocessing.image:
+
+# tf: TensorFlow kütüphanesi, derin öğrenme modelleri oluşturmak ve eğitmek için kullanılan popüler bir açık kaynak kütüphanedir.
+# keras: TensorFlow'un yüksek seviyeli bir API'si olan Keras, derin öğrenme modellerini kolayca oluşturmanıza ve eğitmenize olanak tanır.
+# preprocessing: Veri ön işleme anlamına gelir. TensorFlow/Keras'ta, preprocessing modülü, verilerinizi modele girmeden önce hazırlamak için kullanılır.
+# image: Görüntü verileri için ön işleme araçları sunan bir alt modüldür.
+#load_img: Bu, TensorFlow/Keras kütüphanesindeki bir fonksiyondur. Bir görüntü dosyasını (JPEG, PNG, vs.) yükler ve bir PIL (Python Imaging Library) görüntü nesnesi olarak döner.
+# img_path: Bu, yüklemek istediğiniz resim dosyasının yolunu içeren bir değişkendir. Örneğin, 'C:/Users/YourUsername/Pictures/path_to_your_image.jpg' gibi.
+# target_size: Yüklenen görüntünün yeniden boyutlandırılacağı hedef boyutu belirtir. Bu örnekte, target_size=(224, 224) olarak belirlenmiştir, yani görüntü 224 piksel genişlik ve 224 piksel yükseklik olacak şekilde yeniden boyutlandırılır.
+# Adım Adım Açıklama
+# TensorFlow ve Keras Kütüphaneleri:
+# tf.keras.preprocessing.image: Bu modül, görüntü verilerini işlemek için kullanılır. İçinde görüntüleri yüklemek, ölçeklendirmek ve dönüştürmek için fonksiyonlar bulunur.
+# Görüntü Yükleme (load_img): load_img(img_path, target_size=(224, 224)): Bu fonksiyon, belirtilen dosya yolundaki görüntüyü yükler ve onu belirli bir boyuta (bu durumda 224x224 piksel) yeniden boyutlandırır.
+# img_path: Bu, yüklemek istediğiniz resim dosyasının yolunu belirtir.
+# target_size: Bu parametre, görüntünün yeniden boyutlandırılacağı boyutu belirtir. Örneğin, (224, 224) boyutu, yüklenen görüntünün 224 piksel genişliğinde ve 224 piksel yüksekliğinde olacağı anlamına gelir.
+# Görüntü Nesnesi (img): img değişkeni, yüklenen ve yeniden boyutlandırılan görüntüyü içerir. Bu, PIL (Python Imaging Library) nesnesi olarak döner ve daha sonra modelinize girdi olarak kullanılabilir.
+
+# KULLANIM ÖRNEĞİ
+import tensorflow as tf
+import matplotlib.pyplot as plt
+
+# Görüntü dosyasının yolunu belirtin
+img_path = 'C:/Users/YourUsername/Pictures/path_to_your_image.jpg'
+
+# Görüntüyü yükleyin ve yeniden boyutlandırın
+img = tf.keras.preprocessing.image.load_img(img_path, target_size=(224, 224))
+
+# Görüntüyü numpy dizisine dönüştürün
+img_array = tf.keras.preprocessing.image.img_to_array(img)
+
+# Görüntüyü gösterin
+plt.imshow(img_array.astype('uint8'))
+plt.axis('off')  # Eksenleri kapat
+plt.show()
+
